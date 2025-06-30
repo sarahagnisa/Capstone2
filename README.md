@@ -143,7 +143,6 @@ Proyek ini untuk keperluan pembelajaran. Data tidak digunakan untuk kepentingan 
 
 ## 📬 Contact
 
-📧 sarahaniisaa97@gmail.com  
-🔗 [LinkedIn](www.linkedin.com/in/sarah-agnisa)
+📧 sarahaniisaa97@gmail.com
 
 ---
