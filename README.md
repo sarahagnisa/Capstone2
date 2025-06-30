@@ -1,5 +1,3 @@
-# Capstone2
-Purwadhika_Capstone2
 
 # 📊 Capstone Project Module 2 – Customer Segmentation Analysis
 
@@ -14,84 +12,138 @@ Sarah Agnisa
 
 ---
 
-## 📌 Project Overview
+## 🔍 Project Overview
 
-Proyek ini bertujuan untuk melakukan analisis eksploratif dan segmentasi pelanggan dari sebuah supermarket besar berdasarkan data transaksi dan karakteristik pelanggan. Hasil analisis digunakan untuk merumuskan **strategi pemasaran yang lebih efektif dan personalisasi produk** berdasarkan perilaku dan demografi pelanggan.
+Proyek ini bertujuan untuk memahami perilaku pelanggan supermarket melalui analisis data dan memberikan insight strategis yang dapat digunakan untuk meningkatkan efektivitas kampanye pemasaran, meningkatkan loyalitas pelanggan, serta meningkatkan total penjualan.
 
----
-
-## 🧠 Key Objectives
-
-- Menganalisis pola pengeluaran dan pendapatan pelanggan.
-- Menentukan hubungan antara karakteristik pelanggan (usia, pendidikan, jumlah anak) dengan perilaku belanja.
-- Mengevaluasi efektivitas kampanye pemasaran sebelumnya.
-- Memberikan rekomendasi strategis berbasis data untuk meningkatkan loyalitas dan penjualan.
+Pendekatan utama yang digunakan adalah Exploratory Data Analysis (EDA), segmentasi pelanggan, analisis korelasi, serta pembuatan visualisasi untuk mendukung pengambilan keputusan berbasis data.
 
 ---
 
-## 📚 Dataset Description
+## 🎯 Objectives
 
-Dataset yang digunakan berisi informasi pelanggan dengan fitur-fitur seperti:
-- Demografi: `Age`, `Education`, `Marital_Status`, `Income`, `Children`
-- Pembelian: `MntWines`, `MntMeatProducts`, `MntGoldProds`, dll.
-- Respons terhadap kampanye: `AcceptedCmp1–5`, `Response`
-- Channel pembelian: `NumWebPurchases`, `NumCatalogPurchases`, `NumStorePurchases`
-
-Sumber: Simulasi data retail (tidak sensitif atau asli).
+- Melakukan eksplorasi data demografis, pengeluaran, dan perilaku belanja pelanggan.
+- Menilai efektivitas masing-masing kampanye pemasaran.
+- Mengidentifikasi segmen pelanggan potensial.
+- Mengusulkan strategi bisnis berbasis hasil analisis dan segmentasi.
+- Menyediakan visualisasi data yang informatif untuk mendukung insight yang ditemukan.
 
 ---
 
-## 🔧 Libraries Used
+## 🧾 Dataset Description
 
-- `pandas`
-- `numpy`
-- `matplotlib`
-- `seaborn`
-- `scipy.stats` (untuk korelasi & uji statistik)
-- `datetime`
+Dataset berisi informasi 2240 pelanggan supermarket dengan berbagai atribut, termasuk:
 
----
+### 🎓 Demografi
+- `Age`, `Education`, `Marital_Status`, `Income`, `Kidhome`, `Teenhome`, `Dt_Customer`
 
-## 📈 Analysis Sections
+### 💳 Pembelian
+- `MntWines`, `MntMeatProducts`, `MntFruits`, `MntFishProducts`, `MntSweetProducts`, `MntGoldProds`
 
-1. **Data Cleaning & Preprocessing**  
-   - Konversi tanggal, pengecekan missing value, dan pembentukan kolom baru.
+### 🛒 Perilaku Belanja
+- `NumDealsPurchases`, `NumWebPurchases`, `NumCatalogPurchases`, `NumStorePurchases`, `NumWebVisitsMonth`
 
-2. **Exploratory Data Analysis (EDA)**  
-   - Distribusi demografi dan pengeluaran.
-   - Korelasi antara `Income`, `Total Spending`, dan `Education`.
-   - Analisis channel dan jenis produk.
-
-3. **Campaign Response Analysis**  
-   - Performa masing-masing kampanye (`Cmp1–5`, `Response`)
-   - Segmentasi berdasarkan jumlah kampanye yang direspon.
-
-4. **Customer Segmentation & Strategic Insight**  
-   - Insight berdasarkan jumlah anak, jenis produk, channel, dan education.
-   - Rekomendasi bisnis berbasis data.
+### 📢 Respons Kampanye
+- `AcceptedCmp1` sampai `AcceptedCmp5`, `Response`
 
 ---
 
-## 📊 Key Visualizations
+## 🧪 Tools & Technologies
 
-- Barplot pengeluaran berdasarkan produk dan pendidikan.
-- Scatterplot hubungan `Income` dan `Total Spending`.
-- Korelasi Pearson antar variabel numerik.
-- Barplot respons terhadap masing-masing kampanye.
+- Python (Jupyter Notebook)
+- Pandas, NumPy
+- Matplotlib, Seaborn
+- Scipy (Pearson correlation, hypothesis testing)
+- Tableau (untuk visualisasi lanjutan)
 
 ---
 
-## ✅ Business Recommendations
+## 🧹 Data Preparation
 
-- Fokus pada segmen pelanggan berpendidikan tinggi dan tanpa anak.
-- Replikasi elemen kampanye yang sukses.
-- Promosi bundling produk premium (wine, meat, gold).
-- Personalization campaign berbasis response history.
+- Konversi kolom tanggal (`Dt_Customer`) menjadi tipe `datetime`.
+- Pembuatan fitur baru seperti `Total Spending`, `Total Purchases`, `Total_Kampanye_Respon`.
+- Transformasi data menggunakan `.melt()` dan `.groupby()` untuk memudahkan visualisasi.
+- Penanganan missing value, pengecekan duplikasi.
+
+---
+
+## 📊 Key Analysis & Insights
+
+### 1. Demografi & Spending
+- Pelanggan tanpa anak cenderung memiliki pengeluaran lebih tinggi.
+- Education level berpengaruh terhadap pola pengeluaran, pelanggan berpendidikan tinggi memiliki spending lebih besar.
+
+### 2. Campaign Response
+- Kampanye terakhir (`Response`) mendapatkan respons paling tinggi.
+- Kampanye ke-1 dan ke-2 tidak efektif, perlu direview atau dihentikan.
+
+### 3. Produk
+- Wine dan Meat adalah produk dengan pengeluaran terbesar.
+- Fruits dan Fish menunjukkan potensi pertumbuhan melalui diskon/edukasi.
+
+### 4. Korelasi
+- Korelasi positif antara `Income` dan `Total Spending`, terutama untuk segmen tertentu (dilihat berdasarkan `Education`).
+- Analisis Pearson digunakan untuk mengukur kekuatan hubungan antar variabel numerik.
+
+---
+
+## 📈 Visualization Examples
+
+- Barplot pengeluaran berdasarkan `Education` dan `Product Type`.
+- Scatterplot hubungan `Income` vs `Total Spending` dengan hue `Education`.
+- Heatmap korelasi antar variabel numerik.
+- Barplot respons kampanye per kategori.
+
+---
+
+## 🧠 Business Recommendations
+
+- Fokus kampanye pada segmen tanpa anak dan berpendidikan tinggi.
+- Optimalkan channel pembelian online dan offline berdasarkan frekuensi transaksi.
+- Replikasi format kampanye terakhir yang paling sukses.
+- Bundling produk premium untuk meningkatkan nilai transaksi.
+- Evaluasi dan segmentasi pelanggan berdasarkan jumlah kampanye yang mereka respon.
 
 ---
 
 ## 🚀 How to Run
 
-1. Pastikan semua library terinstall:
+1. Install semua dependensi:
    ```bash
    pip install pandas numpy matplotlib seaborn scipy
+   ```
+
+2. Jalankan Jupyter Notebook:
+   - Buka `capstone_module2_sarahagnisa.ipynb`
+   - Jalankan setiap cell dari atas ke bawah secara berurutan
+
+---
+
+## 📊 Tableau Dashboard (Optional)
+
+Dashboard visualisasi lanjutan dapat dilihat menggunakan Tableau Public/Desktop. Disarankan untuk:
+- Menganalisis top 10 spender
+- Respons kampanye berdasarkan kategori
+- Perbandingan pengeluaran per channel atau produk
+
+---
+
+## 📌 Project Limitations
+
+- Dataset adalah data simulasi, bukan real customer data.
+- Insight bersifat deskriptif, belum termasuk Machine Learning segmentation atau clustering.
+
+---
+
+## 📝 License
+
+Proyek ini untuk keperluan pembelajaran. Data tidak digunakan untuk kepentingan komersial.
+
+---
+
+## 📬 Contact
+
+📧 sarahagnisa@email.com  
+🔗 [LinkedIn](https://linkedin.com/in/sarahagnisa)
+
+---
